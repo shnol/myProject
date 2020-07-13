@@ -1,0 +1,30 @@
+.App {
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+  "h h"
+  "b n"
+  "f f";
+  grid-template-rows: 60px 1fr 60px;
+  grid-template-columns: 10fr 2fr;
+}
+
+.header {
+  grid-area: h;
+  background-color: aquamarine;
+}
+
+.nav {
+  grid-area: n;
+  background-color: burlywood;
+}
+
+.body {
+  grid-area: b;
+  background-color: chocolate;
+}
+
+.footer {
+  grid-area: f;
+  background-color: darkcyan;
+}

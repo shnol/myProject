@@ -10,16 +10,16 @@ import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
 
-const App = () => {
+const App = (props) => {
     return (
         <div className="App">
             <Header/>
             <div className="body">
-                <Route path="/dialogs" component={Dialogs}/>
-                <Route path="/profile" component={Profile}/>
-                <Route path="/news" component={News}/>
-                <Route path="/music" component={Music}/>
-                <Route path="/settings" component={Settings}/>
+                <Route path="/dialogs" render={ () => <Dialogs postsdata={props.state.postsdata} usersname={props.state.usersname}/>}/>
+                <Route path="/profile" render={ () => <Profile posts={props.state.posts}/>}/>
+                <Route path="/news" render={ () => <News />}/>
+                <Route path="/music" render={ () => <Music />}/>
+                <Route path="/settings" render={ () => <Settings />}/>
             </div>
             <Nav/>
             <Footer/>

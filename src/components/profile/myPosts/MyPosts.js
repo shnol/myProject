@@ -2,7 +2,8 @@ import React from 'react';
 import cls from './MyPosts.module.css';
 import Post from "./post/Post";
 
-const myPosts = () => {
+const myPosts = (props) => {
+    let postslist = props.posts.map( post => <Post message={post.text} like={post.like} id={post.id}/>)
     return (
         <div>
             <div className={cls.header}>
@@ -11,8 +12,7 @@ const myPosts = () => {
             <div className={cls.item}>
                 <textarea></textarea>
                 <button>Add post</button>
-                <Post message='H1 i www123' like='15'/>
-                <Post message='I want do nothing' like='55'/>
+                {postslist}
             </div>
         </div>
     );

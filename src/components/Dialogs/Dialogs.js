@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createRef} from 'react';
 import cls from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
@@ -19,8 +19,9 @@ const Post = (props) => {
 const dialogs = (props) => {
 
     let userslist = props.usersname.map(user => <User id={user.id} name={user.name}/>)
-
     let postslist = props.postsdata.map(post => <Post id={post.id} post={post.text}/>)
+    const addPost = createRef()
+    const addPosts = () =>  {alert(addPost.current.value)}
 
     return (
         <div className={cls.body}>
@@ -29,6 +30,8 @@ const dialogs = (props) => {
             </div>
             <div className={cls.messages}>
                 {postslist}
+                <textarea ref={addPost}></textarea>
+                <button onClick={addPosts}>Add post</button>
             </div>
         </div>
     );
